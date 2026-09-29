@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://instagram-clone-7gq5.vercel.app/api',
-  socketUrl: 'https://instagram-clone-7gq5.vercel.app'
+  apiUrl: 'https://instagram-clone-zlnx.onrender.com/api',
+  socketUrl: 'https://instagram-clone-zlnx.onrender.com'
 };
