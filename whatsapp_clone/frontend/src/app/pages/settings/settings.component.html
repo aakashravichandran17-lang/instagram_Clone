@@ -55,13 +55,13 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Profile Image URL</label>
-                  <input
-                    type="url"
-                    class="form-control"
-                    placeholder="https://example.com/avatar.jpg"
-                    formControlName="profileImage"
-                  />
+                  <label class="form-label">Profile Image</label>
+                  <app-image-upload
+                    #imageUpload
+                    [imageUrl]="currentUser?.profileImage || ''"
+                    [uploadOnSelect]="false"
+                    (imageUrlChange)="onProfileImageChange($event)"
+                  ></app-image-upload>
                 </div>
 
                 <button type="submit" class="btn btn-primary" [disabled]="saving">

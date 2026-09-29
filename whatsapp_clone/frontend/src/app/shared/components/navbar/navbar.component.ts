@@ -5,6 +5,7 @@ import { AuthService } from '../../../services/auth.service';
 import { NotificationService } from '../../../services/notification.service';
 import { ChatService } from '../../../services/chat.service';
 import { SocketService } from '../../../services/socket.service';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
   selector: 'app-navbar',
@@ -96,6 +97,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private notificationService: NotificationService,
     private chatService: ChatService,
     private socketService: SocketService,
+    private toastService: ToastService,
     private router: Router
   ) {}
 
@@ -141,5 +143,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   logout(): void {
     this.socketService.disconnect();
     this.authService.logout();
+    this.toastService.success('Logged out successfully!');
   }
 }

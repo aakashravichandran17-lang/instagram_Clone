@@ -8,7 +8,6 @@ import { SocketService } from './services/socket.service';
   selector: 'app-root',
   template: `
     <router-outlet></router-outlet>
-    <app-toast-container></app-toast-container>
   `
 })
 export class AppComponent implements OnInit {

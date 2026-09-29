@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
+      this.toastService.warning('Please enter a valid email and password.');
       return;
     }
 

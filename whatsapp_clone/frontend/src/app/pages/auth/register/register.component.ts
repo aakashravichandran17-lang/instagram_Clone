@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   showPassword = false;
   showConfirmPassword = false;
+  profileImageUrl = '';
 
   constructor(
     private fb: FormBuilder,
@@ -58,6 +59,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
+      this.toastService.warning('Please fix the errors in the form.');
       return;
     }
 
@@ -79,6 +81,11 @@ export class RegisterComponent implements OnInit {
           this.toastService.error(error.error?.message || 'Registration failed. Please try again.');
         }
       });
+  }
+
+  onProfileImageChange(url: string): void {
+    this.profileImageUrl = url;
+    this.registerForm.patchValue({ profileImage: url });
   }
 
   togglePassword(): void {

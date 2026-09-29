@@ -34,12 +34,11 @@ import { Post } from '../../../models/post.model';
         </div>
 
         <div class="mt-2" *ngIf="showImageInput">
-          <input
-            type="url"
-            class="form-control form-control-sm"
-            placeholder="Image URL (optional)"
-            formControlName="image"
-          />
+          <app-image-upload
+            [imageUrl]="selectedImageUrl"
+            [uploadOnSelect]="true"
+            (imageUrlChange)="onImageChange($event)"
+          ></app-image-upload>
         </div>
 
         <div class="d-flex justify-content-between align-items-center mt-3">
@@ -72,6 +71,7 @@ export class CreatePostComponent implements OnInit {
   postForm!: FormGroup;
   loading = false;
   showImageInput = false;
+  selectedImageUrl = '';
 
   constructor(
     private fb: FormBuilder,
@@ -94,12 +94,21 @@ export class CreatePostComponent implements OnInit {
   toggleImageInput(): void {
     this.showImageInput = !this.showImageInput;
     if (!this.showImageInput) {
+      this.selectedImageUrl = '';
       this.postForm.patchValue({ image: '' });
     }
   }
 
+  onImageChange(url: string): void {
+    this.selectedImageUrl = url;
+    this.postForm.patchValue({ image: url });
+  }
+
   onSubmit(): void {
-    if (this.postForm.invalid) return;
+    if (this.postForm.invalid) {
+      this.toastService.warning('Post content is required.');
+      return;
+    }
 
     this.loading = true;
     const { content, image } = this.postForm.value;
@@ -108,6 +117,7 @@ export class CreatePostComponent implements OnInit {
       next: (response) => {
         this.postCreated.emit(response.data.post);
         this.postForm.reset();
+        this.selectedImageUrl = '';
         this.showImageInput = false;
         this.loading = false;
         this.toastService.success('Post created successfully!');

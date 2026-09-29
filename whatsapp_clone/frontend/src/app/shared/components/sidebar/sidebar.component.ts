@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
+import { ToastService } from '../../../services/toast.service';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -73,6 +74,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
+    private toastService: ToastService,
     private router: Router
   ) {}
 
@@ -82,5 +84,6 @@ export class SidebarComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
+    this.toastService.success('Logged out successfully!');
   }
 }

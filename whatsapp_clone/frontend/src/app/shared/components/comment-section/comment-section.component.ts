@@ -91,7 +91,10 @@ export class CommentSectionComponent {
   }
 
   onSubmit(): void {
-    if (this.commentForm.invalid) return;
+    if (this.commentForm.invalid) {
+      this.toastService.warning('Comment cannot be empty.');
+      return;
+    }
 
     this.loading = true;
     const content = this.commentForm.value.content;
@@ -101,6 +104,7 @@ export class CommentSectionComponent {
         this.commentAdded.emit(response.data.comment);
         this.commentForm.reset();
         this.loading = false;
+        this.toastService.success('Comment added');
       },
       error: (error) => {
         this.loading = false;

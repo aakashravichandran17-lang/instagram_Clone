@@ -1,48 +1,31 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
-export interface Toast {
-  id: number;
-  message: string;
-  type: 'success' | 'error' | 'info' | 'warning';
-}
-
+/**
+ * Thin wrapper around ngx-toastr so the rest of the app keeps using a
+ * single, consistent notification API. Global toast configuration
+ * (position, timeout, progress bar, close button, duplicate prevention)
+ * is registered in app.module.ts via ToastrModule.forRoot().
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ToastService {
-  private toastsSubject = new BehaviorSubject<Toast[]>([]);
-  public toasts$: Observable<Toast[]> = this.toastsSubject.asObservable();
+  constructor(private toastr: ToastrService) {}
 
-  private counter = 0;
-
-  success(message: string): void {
-    this.add(message, 'success');
+  success(message: string, title?: string): void {
+    this.toastr.success(message, title);
   }
 
-  error(message: string): void {
-    this.add(message, 'error');
+  error(message: string, title?: string): void {
+    this.toastr.error(message, title);
   }
 
-  info(message: string): void {
-    this.add(message, 'info');
+  info(message: string, title?: string): void {
+    this.toastr.info(message, title);
   }
 
-  warning(message: string): void {
-    this.add(message, 'warning');
-  }
-
-  private add(message: string, type: Toast['type']): void {
-    const toast: Toast = { id: ++this.counter, message, type };
-    const current = this.toastsSubject.value;
-    this.toastsSubject.next([...current, toast]);
-
-    // Auto-dismiss after 4 seconds
-    setTimeout(() => this.remove(toast.id), 4000);
-  }
-
-  remove(id: number): void {
-    const current = this.toastsSubject.value;
-    this.toastsSubject.next(current.filter((t) => t.id !== id));
+  warning(message: string, title?: string): void {
+    this.toastr.warning(message, title);
   }
 }

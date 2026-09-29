@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ToastContainerComponent } from './components/toast-container/toast-container.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
@@ -11,6 +10,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FollowButtonComponent } from './components/follow-button/follow-button.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,7 +21,6 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
-    ToastContainerComponent,
     AvatarComponent,
     SkeletonComponent,
     EmptyStateComponent,
@@ -29,6 +28,7 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
     FollowButtonComponent,
     UserCardComponent,
     CreatePostComponent,
+    ImageUploadComponent,
     PostCardComponent,
     CommentSectionComponent,
     NavbarComponent,
@@ -39,7 +39,6 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   exports: [
-    ToastContainerComponent,
     AvatarComponent,
     SkeletonComponent,
     EmptyStateComponent,
@@ -47,6 +46,7 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
     FollowButtonComponent,
     UserCardComponent,
     CreatePostComponent,
+    ImageUploadComponent,
     PostCardComponent,
     CommentSectionComponent,
     NavbarComponent,
