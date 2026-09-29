@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const cors = require('cors');
 
 const connectDB = require('./config/db');
@@ -98,6 +99,16 @@ app.use(
   express.urlencoded({
     extended: true
   })
+);
+
+
+// =====================================================
+// STATIC FILES (uploaded images)
+// =====================================================
+
+app.use(
+  '/uploads',
+  express.static(path.join(__dirname, 'uploads'))
 );
 
 
