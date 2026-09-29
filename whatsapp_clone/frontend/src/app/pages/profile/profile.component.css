@@ -1,0 +1,33 @@
+.dashboard-layout {
+  min-height: 100vh;
+}
+
+.sidebar-col {
+  padding: 0;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  overflow-y: auto;
+}
+
+.main-content {
+  min-height: calc(100vh - 60px);
+}
+
+.profile-cover {
+  height: 180px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+@media (max-width: 991px) {
+  .sidebar-col {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    padding-bottom: 70px !important;
+  }
+}

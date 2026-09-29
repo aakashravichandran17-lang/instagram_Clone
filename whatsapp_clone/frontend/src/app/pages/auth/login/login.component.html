@@ -1,0 +1,68 @@
+<div class="auth-page min-vh-100 d-flex align-items-center justify-content-center py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5 col-lg-4">
+        <div class="card p-4 shadow-lg">
+          <div class="text-center mb-4">
+            <a routerLink="/" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+              <i class="bi bi-heart-fill text-danger fs-2"></i>
+              <span class="text-gradient fs-3 fw-bold">ConnectHub</span>
+            </a>
+            <p class="text-muted mt-2">Welcome back! Sign in to continue.</p>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="you@example.com"
+                formControlName="email"
+                [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+              />
+              <div class="invalid-feedback" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                Please enter a valid email.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <div class="input-group">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  class="form-control"
+                  placeholder="Enter your password"
+                  formControlName="password"
+                  [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                />
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePassword()">
+                  <i class="bi" [class]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                Password is required.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+              {{ loading ? 'Signing in...' : 'Sign In' }}
+            </button>
+          </form>
+
+          <div class="divider"></div>
+
+          <p class="text-center text-muted mb-0">
+            Don't have an account?
+            <a routerLink="/register" class="fw-semibold">Sign up</a>
+          </p>
+        </div>
+
+        <p class="text-center text-muted small mt-3">
+          Demo: john@example.com / password123
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

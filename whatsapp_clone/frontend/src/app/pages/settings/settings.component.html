@@ -1,0 +1,110 @@
+<div class="dashboard-layout">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-lg-2 d-none d-lg-block sidebar-col">
+        <div class="sticky-top" style="top: 70px;">
+          <app-sidebar></app-sidebar>
+        </div>
+      </aside>
+
+      <main class="col-lg-10 col-md-12 main-content px-3 py-3">
+        <h4 class="fw-bold mb-3">Settings</h4>
+
+        <div class="row">
+          <!-- Profile Settings -->
+          <div class="col-lg-8">
+            <div class="card p-4 mb-3">
+              <h5 class="fw-bold mb-3">Profile Settings</h5>
+
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <app-avatar
+                  [image]="currentUser?.profileImage || ''"
+                  [name]="currentUser?.fullName || ''"
+                  size="xl"
+                ></app-avatar>
+                <div>
+                  <p class="fw-semibold mb-0">{{ currentUser?.fullName }}</p>
+                  <small class="text-muted">@{{ currentUser?.username }}</small>
+                </div>
+              </div>
+
+              <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="fullName"
+                    [class.is-invalid]="profileForm.get('fullName')?.invalid && profileForm.get('fullName')?.touched"
+                  />
+                  <div class="invalid-feedback">Full name is required.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Bio</label>
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    maxlength="160"
+                    placeholder="Tell people about yourself..."
+                    formControlName="bio"
+                  ></textarea>
+                  <small class="text-muted">{{ profileForm.get('bio')?.value?.length || 0 }}/160</small>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Profile Image URL</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    placeholder="https://example.com/avatar.jpg"
+                    formControlName="profileImage"
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="saving">
+                  <span *ngIf="saving" class="spinner-border spinner-border-sm me-2"></span>
+                  {{ saving ? 'Saving...' : 'Save Changes' }}
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="col-lg-4">
+            <div class="card p-4 mb-3">
+              <h5 class="fw-bold mb-3">Preferences</h5>
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <p class="fw-semibold mb-0">Dark Mode</p>
+                  <small class="text-muted">Toggle dark theme</small>
+                </div>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [checked]="darkMode"
+                    (change)="toggleDarkMode()"
+                    style="width:40px;height:22px;cursor:pointer;"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="card p-4">
+              <h5 class="fw-bold mb-3">Account</h5>
+              <button class="btn btn-outline-danger w-100" (click)="logout()">
+                <i class="bi bi-box-arrow-right me-2"></i>Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <app-mobile-nav></app-mobile-nav>
+</div>

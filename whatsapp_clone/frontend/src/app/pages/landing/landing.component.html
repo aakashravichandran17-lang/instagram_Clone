@@ -1,0 +1,217 @@
+<!-- Landing Page -->
+<div class="landing-page">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-heart-fill text-danger"></i>
+        <span class="text-gradient">ConnectHub</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#landingNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="landingNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How it Works</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-outline" routerLink="/login">Login</a></li>
+          <li class="nav-item ms-2"><a class="btn btn-primary" routerLink="/register">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section hero-gradient hero-pattern">
+    <div class="container">
+      <div class="row align-items-center min-vh-100 py-5">
+        <div class="col-lg-6 text-white">
+          <h1 class="display-3 fw-bold mb-4">
+            Connect.<br />Share.<br />Communicate.
+          </h1>
+          <p class="lead mb-4 opacity-75">
+            ConnectHub is a modern social networking platform with real-time messaging,
+            beautiful feeds, and seamless communication. Build your network, share your
+            story, and stay connected.
+          </p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a routerLink="/register" class="btn btn-light btn-lg">
+              <i class="bi bi-rocket-takeoff me-2"></i>Get Started Free
+            </a>
+            <a routerLink="/login" class="btn btn-outline-light btn-lg">
+              <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+            </a>
+          </div>
+          <div class="d-flex gap-4 mt-4">
+            <div>
+              <h4 class="fw-bold mb-0">10K+</h4>
+              <small class="opacity-75">Active Users</small>
+            </div>
+            <div>
+              <h4 class="fw-bold mb-0">50K+</h4>
+              <small class="opacity-75">Messages Sent</small>
+            </div>
+            <div>
+              <h4 class="fw-bold mb-0">99.9%</h4>
+              <small class="opacity-75">Uptime</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="hero-mockup">
+            <div class="card shadow-lg" style="border-radius: 20px; overflow: hidden;">
+              <div class="card-header bg-white d-flex align-items-center gap-2 py-2">
+                <span class="rounded-circle bg-danger" style="width:10px;height:10px;"></span>
+                <span class="rounded-circle bg-warning" style="width:10px;height:10px;"></span>
+                <span class="rounded-circle bg-success" style="width:10px;height:10px;"></span>
+              </div>
+              <div class="card-body p-4" style="background: #f8fafc;">
+                <div class="d-flex gap-3 mb-3">
+                  <div class="rounded-circle bg-primary" style="width:40px;height:40px;"></div>
+                  <div class="flex-grow-1">
+                    <div class="rounded bg-white p-2 shadow-sm mb-2" style="height:14px;width:60%;"></div>
+                    <div class="rounded bg-white p-2 shadow-sm" style="height:14px;width:40%;"></div>
+                  </div>
+                </div>
+                <div class="rounded bg-white p-3 shadow-sm mb-3" style="height:80px;"></div>
+                <div class="d-flex gap-3">
+                  <div class="rounded bg-white p-2 shadow-sm" style="height:14px;width:30%;"></div>
+                  <div class="rounded bg-white p-2 shadow-sm" style="height:14px;width:30%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Everything you need to <span class="text-gradient">connect</span></h2>
+        <p class="text-muted lead">Powerful features designed for modern communication</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h5 class="fw-bold">Real-Time Chat</h5>
+            <p class="text-muted mb-0">Instant messaging with typing indicators, read receipts, and online status. Powered by Socket.io.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-success bg-opacity-10 text-success mx-auto">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="fw-bold">Social Feed</h5>
+            <p class="text-muted mb-0">Share posts with images, like and comment on content, and build your network.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-warning bg-opacity-10 text-warning mx-auto">
+              <i class="bi bi-bell-fill"></i>
+            </div>
+            <h5 class="fw-bold">Smart Notifications</h5>
+            <p class="text-muted mb-0">Get real-time notifications for likes, comments, follows, and messages.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-danger bg-opacity-10 text-danger mx-auto">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="fw-bold">Secure & Private</h5>
+            <p class="text-muted mb-0">JWT authentication, bcrypt password hashing, and protected routes keep your data safe.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-info bg-opacity-10 text-info mx-auto">
+              <i class="bi bi-search"></i>
+            </div>
+            <h5 class="fw-bold">User Discovery</h5>
+            <p class="text-muted mb-0">Find and connect with people. Search by username or full name with instant results.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon bg-secondary bg-opacity-10 text-secondary mx-auto">
+              <i class="bi bi-phone-fill"></i>
+            </div>
+            <h5 class="fw-bold">Fully Responsive</h5>
+            <p class="text-muted mb-0">Beautiful on every device — desktop, tablet, and mobile with adaptive layouts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-5" style="background: var(--bg-secondary);">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Get started in <span class="text-gradient">3 simple steps</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width:60px;height:60px;font-size:1.5rem;font-weight:700;">1</span>
+          </div>
+          <h5 class="fw-bold">Create Account</h5>
+          <p class="text-muted">Sign up in seconds with your email and username. No credit card required.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width:60px;height:60px;font-size:1.5rem;font-weight:700;">2</span>
+          </div>
+          <h5 class="fw-bold">Build Your Network</h5>
+          <p class="text-muted">Find people, follow them, and start sharing your thoughts and moments.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width:60px;height:60px;font-size:1.5rem;font-weight:700;">3</span>
+          </div>
+          <h5 class="fw-bold">Start Chatting</h5>
+          <p class="text-muted">Send real-time messages, get instant notifications, and stay connected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="card text-center p-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+        <h2 class="display-5 fw-bold text-white mb-3">Ready to connect?</h2>
+        <p class="lead text-white opacity-75 mb-4">Join thousands of users already on ConnectHub</p>
+        <a routerLink="/register" class="btn btn-light btn-lg">
+          <i class="bi bi-rocket-takeoff me-2"></i>Create Free Account
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4" style="background: var(--card); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+            <i class="bi bi-heart-fill text-danger"></i>
+            <span class="text-gradient">ConnectHub</span>
+          </a>
+          <p class="text-muted small mb-0 mt-2">Modern social networking & real-time communication platform.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="text-muted small mb-0">&copy; 2026 ConnectHub. Built with Angular, Node.js & Socket.io.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
